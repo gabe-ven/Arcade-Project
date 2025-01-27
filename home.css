@@ -4,6 +4,8 @@
   position: absolute;
   width: 100%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   text-shadow: 4px 2px 0 #000, 4px 4px 0 #000000;
   font-family: "Press Start 2P", cursive;
 }
@@ -12,6 +14,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 90%;
   margin-top: 150px;
 }
 
@@ -49,4 +52,33 @@
   font-size: 15px;
   text-align: center;
   text-shadow: 2px 2px 0 #000, 4px 2px 0 #000000;
+}
+
+.background-image {
+  position: absolute;
+  z-index: -1;
+}
+
+.image1 {
+  background-image: url("assets/controller.png");
+  width: 20vw;
+  height: 20vw;
+  top: -10px;
+  left: -10px;
+  transform: rotate(-10deg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.image2 {
+  background-image: url("assets/arcade.png");
+  width: 30vw;
+  height: 30vw;
+  bottom: -60px;
+  right: -70px;
+  transform: rotate(-10deg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
 }

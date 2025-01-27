@@ -1,0 +1,59 @@
+body {
+  font-family: "Press Start 2P", system-ui;
+  height: 100dvh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #440a6b;
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.title {
+  color: rgb(0, 255, 76);
+  position: absolute;
+  top: 88px;
+  font-size: 26px;
+}
+
+.gameArea {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background: rgba(7, 26, 49, 0.6);
+  top: 182px;
+  border: #919bbec7 10px solid;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  transform: perspective(1000px) rotateX(33deg) scaleX(0.54) scaleY(0.84);
+}
+
+.bg {
+  position: absolute;
+  height: 1000px;
+  z-index: -1;
+}
+
+.startText {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: #222;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.vignett {
+  height: 100dvh;
+  width: 100dvw;
+  background: radial-gradient(
+    circle,
+    rgba(49, 145, 5, 0) 50%,
+    rgb(49, 4, 155) 100%
+  );
+}

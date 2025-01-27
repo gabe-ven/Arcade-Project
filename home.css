@@ -1,0 +1,52 @@
+.main-title {
+  font-size: 50px;
+  color: rgb(0, 255, 76);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  text-shadow: 4px 2px 0 #000, 4px 4px 0 #000000;
+  font-family: "Press Start 2P", cursive;
+}
+
+.game-selection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 150px;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  border: 3px solid #0ae666;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
+  width: 200px;
+  background-color: rgb(6, 4, 27);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.9);
+}
+
+.game-image {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.game-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+}
+
+.game-description {
+  font-size: 15px;
+  text-align: center;
+  text-shadow: 2px 2px 0 #000, 4px 2px 0 #000000;
+}

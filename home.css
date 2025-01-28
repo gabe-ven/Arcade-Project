@@ -5,7 +5,7 @@
   width: 100%;
   text-align: center;
   margin-top: 3vh;
-  text-shadow: 4px 2px 0 #000, 4px 4px 0 #000000;
+  text-shadow: 8px 5px 0 #000, 4px 4px 0 #000000;
   font-family: "Press Start 2P", cursive;
   z-index: 1;
 }
@@ -26,6 +26,7 @@
   width: 20vw;
   background-color: rgb(6, 4, 27);
   transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 1;
 }
 
 .game-card:hover {
@@ -41,7 +42,7 @@
 }
 
 .game-title {
-  font-size: 1.8vw;
+  font-size: 3vw;
   margin-bottom: 1vh;
   color: #f29727;
   text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
@@ -50,8 +51,113 @@
 .game-description {
   font-size: 1.2vw;
   text-align: center;
-  margin: 1vh;
+  margin: 2vh;
   text-shadow: 2px 2px 0 #000, 4px 2px 0 #000000;
+}
+
+.image1 {
+  background-image: url("assets/controller.png");
+  width: 30vw;
+  height: 30vw;
+  bottom: -10%;
+  left: -6%;
+  transform: rotate(10deg);
+  background-size: cover;
+  position: absolute;
+}
+
+.image2 {
+  background-image: url("assets/arcade.png");
+  width: 30vw;
+  height: 30vw;
+  bottom: -8%;
+  right: -7%;
+  transform: rotate(-10deg);
+  background-size: cover;
+  position: absolute;
+}
+
+.image3 {
+  background-image: url("assets/mario.gif");
+  width: 20vw;
+  height: 20vw;
+  top: 1%;
+  right: 5%;
+  background-size: cover;
+  position: absolute;
+}
+
+.image4 {
+  background-image: url("assets/fighter.gif");
+  width: 15vw;
+  height: 36vw;
+  top: -1%;
+  left: -2%;
+  background-size: cover;
+  position: absolute;
+  z-index: 1;
+}
+
+.image5 {
+  background-image: url("assets/pikachu.gif");
+  width: 22vw;
+  height: 22vw;
+  top: 20%;
+  right: -5%;
+  background-size: cover;
+  position: absolute;
+}
+
+.image6 {
+  background-image: url("assets/squidward.gif");
+  width: 25vw;
+  height: 25vw;
+  top: -3%;
+  left: -2%;
+  background-size: cover;
+  position: absolute;
+}
+
+.image7 {
+  background-image: url("assets/bat.gif");
+  width: 13vw;
+  height: 13vw;
+  top: -3%;
+  left: 15%;
+  background-size: cover;
+  position: absolute;
+}
+
+.image8 {
+  background-image: url("assets/blue.gif");
+  width: 8vw;
+  height: 8vw;
+  top: 0%;
+  right: 18%;
+  background-size: cover;
+  position: absolute;
+}
+
+.image9 {
+  background-image: url("assets/thumbs-up.gif");
+  width: 15vw;
+  height: 20vw;
+  top: -1%;
+  right: -5%;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+}
+
+.image10 {
+  background-image: url("assets/crystal.gif");
+  width: 20vw;
+  height: 20vw;
+  top: -5%;
+  left: -2%;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
 }
 
 @media only screen and (min-width: 600px) {

@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const snakePage = document.getElementById("snake-page");
   const tetrisPage = document.getElementById("tetris-page");
 
+  const backButton = document.getElementById("back-button"); // Back button
+
   // Listen for clicks on game cards
   gameCards.forEach((card) => {
     card.addEventListener("click", function () {
@@ -21,8 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (targetGame === "snake") {
         snakePage.style.visibility = "visible";
       } else if (targetGame === "tetris") {
-        snakePage.style.visibility = "visible";
+        tetrisPage.style.visibility = "visible";
       }
+
+      // Show the back button
+      backButton.style.visibility = "visible";
     });
+  });
+
+  // Listen for clicks on the back button
+  backButton.addEventListener("click", function () {
+    // Hide the back button
+    backButton.style.visibility = "hidden";
+
+    // Show the home page
+    homePage.style.display = "block";
+
+    // Hide all game pages
+    pongPage.style.visibility = "hidden";
+    snakePage.style.visibility = "hidden";
+    tetrisPage.style.visibility = "hidden";
   });
 });

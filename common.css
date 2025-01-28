@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #440a6b;
+  background-color: #f2be22;
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
@@ -46,14 +46,4 @@ body {
   background: #222;
   border-radius: 4px;
   padding: 10px;
-}
-
-.vignett {
-  height: 100dvh;
-  width: 100dvw;
-  background: radial-gradient(
-    circle,
-    rgba(49, 145, 5, 0) 50%,
-    rgb(49, 4, 155) 100%
-  );
 }

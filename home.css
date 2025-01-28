@@ -1,32 +1,29 @@
 .main-title {
-  font-size: 50px;
-  color: rgb(0, 255, 76);
-  position: absolute;
+  font-size: 4vw;
+  color: #f24c3d;
+  position: relative;
   width: 100%;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 3vh;
   text-shadow: 4px 2px 0 #000, 4px 4px 0 #000000;
   font-family: "Press Start 2P", cursive;
+  z-index: 1;
 }
 
 .game-selection {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  width: 90%;
-  margin-top: 150px;
 }
 
 .game-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
-  border: 3px solid #0ae666;
+  margin: 2vh;
+  border: 5px solid #22a699;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.9);
-  border-radius: 4px;
-  width: 200px;
+  border-radius: 6px;
+  width: 20vw;
   background-color: rgb(6, 4, 27);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -37,48 +34,75 @@
 }
 
 .game-image {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1vh;
 }
 
 .game-title {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1.8vw;
+  margin-bottom: 1vh;
+  color: #f29727;
   text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
 }
 
 .game-description {
-  font-size: 15px;
+  font-size: 1.2vw;
   text-align: center;
+  margin: 1vh;
   text-shadow: 2px 2px 0 #000, 4px 2px 0 #000000;
 }
 
-.background-image {
-  position: absolute;
-  z-index: -1;
+@media only screen and (min-width: 600px) {
+  .main-title {
+    font-size: 3vw;
+  }
+
+  .game-card {
+    width: 25vw;
+  }
+
+  .game-title {
+    font-size: 1.5vw;
+  }
+
+  .game-description {
+    font-size: 1vw;
+  }
 }
 
-.image1 {
-  background-image: url("assets/controller.png");
-  width: 20vw;
-  height: 20vw;
-  top: -10px;
-  left: -10px;
-  transform: rotate(-10deg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+  .main-title {
+    font-size: 3.5vw;
+  }
+
+  .game-card {
+    width: 22vw;
+  }
+
+  .game-title {
+    font-size: 1.6vw;
+  }
+
+  .game-description {
+    font-size: 1.1vw;
+  }
 }
 
-.image2 {
-  background-image: url("assets/arcade.png");
-  width: 30vw;
-  height: 30vw;
-  bottom: -60px;
-  right: -70px;
-  transform: rotate(-10deg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
+@media only screen and (max-width: 600px) {
+  .main-title {
+    font-size: 5vw;
+  }
+
+  .game-card {
+    width: 90%;
+  }
+
+  .game-title {
+    font-size: 2vw;
+  }
+
+  .game-description {
+    font-size: 1.5vw;
+  }
 }

@@ -8,6 +8,7 @@ const player2ScoreElement = document.getElementById("player2Score");
 const lossSound = document.getElementById("lossSound");
 const wallSound = document.getElementById("wallSound");
 const paddleSound = document.getElementById("paddleSound");
+const exitButton = document.getElementById("back-button");
 
 // Game Variables
 let gameRunning = false;
@@ -30,17 +31,23 @@ const paddleDeceleration = 1;
 const gameHeight = 400;
 const gameWidth = 600;
 
-// Event Listener for keydown
+// Event Listeners
 document.addEventListener("keydown", startGame);
 document.addEventListener("keydown", handleKeyDown);
 document.addEventListener("keyup", handleKeyUp);
+exitButton.addEventListener("click", resetGame);
 
 // Start Game
 function startGame() {
-  gameRunning = true;
-  startText.style.display = "none"; // Hide the start text
-  document.removeEventListener("keydown", startGame); // Remove the event listener
-  gameLoop(); // Start the game loop
+  const pongPage = document.getElementById("pong-page");
+
+  // Only start game if page is visible
+  if (pongPage.style.visibility === "visible") {
+    gameRunning = true;
+    startText.style.display = "none"; // Hide the start text
+    document.removeEventListener("keydown", startGame); // Remove the event listener
+    gameLoop(); // Start the game loop
+  }
 }
 
 function gameLoop() {
@@ -62,14 +69,10 @@ function handleKeyUp(event) {
 
 function updatePaddle1() {
   if (keysPressed["w"]) {
-    // Move the paddle up
     paddle1Speed = Math.max(paddle1Speed - paddleAcceleration, -maxPaddleSpeed);
-  }
-  // Move the paddle down
-  else if (keysPressed["s"]) {
+  } else if (keysPressed["s"]) {
     paddle1Speed = Math.min(paddle1Speed + paddleAcceleration, maxPaddleSpeed);
   } else {
-    // If no keys are pressed, slow down the paddle
     if (paddle1Speed > 0) {
       paddle1Speed = Math.max(paddle1Speed - paddleDeceleration, 0);
     } else if (paddle1Speed < 0) {
@@ -77,30 +80,23 @@ function updatePaddle1() {
     }
   }
 
-  // Update the paddle's Y position
   paddle1Y += paddle1Speed;
 
-  // Make sure the paddle doesn't go out of bounds
   if (paddle1Y < 0) {
     paddle1Y = 0;
   } else if (paddle1Y > gameHeight - paddle1.clientHeight) {
     paddle1Y = gameHeight - paddle1.clientHeight;
   }
 
-  // Update the paddle's position
   paddle1.style.top = paddle1Y + "px";
 }
 
 function updatePaddle2() {
   if (keysPressed["ArrowUp"]) {
-    // Move the paddle up
     paddle2Speed = Math.max(paddle2Speed - paddleAcceleration, -maxPaddleSpeed);
-  }
-  // Move the paddle down
-  else if (keysPressed["ArrowDown"]) {
+  } else if (keysPressed["ArrowDown"]) {
     paddle2Speed = Math.min(paddle2Speed + paddleAcceleration, maxPaddleSpeed);
   } else {
-    // If no keys are pressed, slow down the paddle
     if (paddle2Speed > 0) {
       paddle2Speed = Math.max(paddle2Speed - paddleDeceleration, 0);
     } else if (paddle2Speed < 0) {
@@ -108,17 +104,14 @@ function updatePaddle2() {
     }
   }
 
-  // Update the paddle's Y position
   paddle2Y += paddle2Speed;
 
-  // Make sure the paddle doesn't go out of bounds
   if (paddle2Y < 0) {
     paddle2Y = 0;
   } else if (paddle2Y > gameHeight - paddle2.clientHeight) {
     paddle2Y = gameHeight - paddle2.clientHeight;
   }
 
-  // Update the paddle's position
   paddle2.style.top = paddle2Y + "px";
 }
 
@@ -126,13 +119,11 @@ function moveBall() {
   ballX += ballSpeedX;
   ballY += ballSpeedY;
 
-  // Wall collision
   if (ballY >= gameHeight - ball.clientHeight || ballY <= 0) {
     ballSpeedY = -ballSpeedY;
     playSound(wallSound);
   }
 
-  // Paddle 1 collision
   if (
     ballX <= paddle1.clientWidth &&
     ballY >= paddle1Y &&
@@ -142,7 +133,6 @@ function moveBall() {
     playSound(paddleSound);
   }
 
-  // Paddle 2 collision
   if (
     ballX >= gameWidth - paddle2.clientWidth - ball.clientWidth &&
     ballY >= paddle2Y &&
@@ -152,7 +142,6 @@ function moveBall() {
     playSound(paddleSound);
   }
 
-  // Out of gameArea collision
   if (ballX <= 0) {
     player2Score++;
     playSound(lossSound);
@@ -179,7 +168,6 @@ function updateScoreboard() {
 function resetBall() {
   ballX = gameWidth / 2 - ball.clientWidth / 2;
   ballY = gameHeight / 2 - ball.clientHeight / 2;
-  // Randomize the ball's starting direction
   ballSpeedX = Math.random() > 0.5 ? 2 : -2;
   ballSpeedY = Math.random() > 0.5 ? 2 : -2;
 }
@@ -192,4 +180,31 @@ function pauseGame() {
 function playSound(sound) {
   sound.currentTime = 0;
   sound.play();
+}
+
+// Reset Game Function
+function resetGame() {
+  gameRunning = false;
+
+  // Reset paddle positions
+  paddle1Y = 150;
+  paddle2Y = 150;
+  paddle1.style.top = paddle1Y + "px";
+  paddle2.style.top = paddle2Y + "px";
+
+  // Reset ball position and speed
+  resetBall();
+  ball.style.left = ballX + "px";
+  ball.style.top = ballY + "px";
+
+  // Reset scores
+  player1Score = 0;
+  player2Score = 0;
+  updateScoreboard();
+
+  // Show the start text again
+  startText.style.display = "block";
+
+  // Reattach the start event listener
+  document.addEventListener("keydown", startGame);
 }

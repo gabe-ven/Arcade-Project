@@ -11,7 +11,7 @@ body {
   overflow: hidden;
 }
 
-.title {
+#pong-page .title {
   color: rgb(0, 255, 76);
   position: absolute;
   top: 88px;
@@ -19,7 +19,7 @@ body {
   text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
 }
 
-.gameArea {
+#pong-page .gameArea {
   position: absolute;
   width: 600px;
   height: 400px;
@@ -31,13 +31,13 @@ body {
   transform: perspective(1000px) rotateX(33deg) scaleX(0.54) scaleY(0.84);
 }
 
-.bg {
+#pong-page .bg {
   position: absolute;
   height: 1000px;
   z-index: -1;
 }
 
-.startText {
+#pong-page .startText {
   position: absolute;
   margin: 0;
   top: 50%;
@@ -68,4 +68,8 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+#back-button:hover {
+  color: #451188;
 }

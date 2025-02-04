@@ -1,0 +1,53 @@
+/* Animations */
+@keyframes slide-down {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-down-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-up-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* Classes for triggering animations */
+.slide-down {
+  animation: slide-down 0.5s forwards;
+}
+
+.slide-down-in {
+  animation: slide-down-in 0.5s forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.5s forwards;
+}
+
+.slide-up-in {
+  animation: slide-up-in 0.5s forwards;
+}

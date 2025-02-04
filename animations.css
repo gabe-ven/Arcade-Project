@@ -38,21 +38,38 @@
   }
 }
 
-/* Home page sliding down */
 .slide-down {
   animation: slide-down 0.5s forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
-/* Game page sliding in from top */
 .slide-down-in {
-  animation: slide-down-in 0.5s forwards;
+  animation: slide-down-in 1s forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
-/* Game page sliding up and out */
 .slide-up {
   animation: slide-up 0.5s forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .slide-up-in {
   animation: slide-up-in 0.5s forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }

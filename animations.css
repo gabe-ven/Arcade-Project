@@ -4,17 +4,17 @@
     transform: translateY(0);
   }
   to {
-    transform: translateY(100vh); /* Slides down completely */
+    transform: translateY(100vh);
   }
 }
 
 /* Game page coming in from top */
 @keyframes slide-down-in {
   from {
-    transform: translateY(-100vh); /* Start above the screen */
+    transform: translateY(-100vh);
   }
   to {
-    transform: translateY(0); /* Moves to its normal position */
+    transform: translateY(0);
   }
 }
 
@@ -24,14 +24,14 @@
     transform: translateY(0);
   }
   to {
-    transform: translateY(-100vh); /* Moves up and out of view */
+    transform: translateY(-200vh);
   }
 }
 
 /* Home page sliding up */
 @keyframes slide-up-in {
   from {
-    transform: translateY(100vh);
+    transform: translateY(200vh);
   }
   to {
     transform: translateY(0);
@@ -40,36 +40,32 @@
 
 .slide-down {
   animation: slide-down 0.5s forwards;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
 }
 
 .slide-down-in {
   animation: slide-down-in 1s forwards;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
 }
 
 .slide-up {
-  animation: slide-up 0.5s forwards;
-  position: fixed;
+  animation: slide-up 1s forwards;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
 }
 
 .slide-up-in {
-  animation: slide-up-in 0.5s forwards;
-  position: fixed;
+  animation: slide-up-in 1s forwards;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
 }

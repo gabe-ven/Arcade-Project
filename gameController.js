@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       homeContent.classList.remove("slide-up-in");
       homeContent.classList.add("slide-down");
+      pongPage.classList.remove("slide-up");
+      pongPage.classList.add("slide-down-in");
+      pongPage.style.visibility = "visible";
 
       setTimeout(() => {
         homeContent.style.display = "none";
-        if (targetGame === "pong") {
-          pongPage.style.visibility = "visible";
-          pongPage.classList.remove("slide-up");
-          pongPage.classList.add("slide-down-in");
-        }
         backButton.style.visibility = "visible";
       }, 500);
     });
@@ -25,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   backButton.addEventListener("click", function () {
     pongPage.classList.add("slide-up");
+    homeContent.classList.remove("slide-down");
+    homeContent.classList.add("slide-up-in");
+    homeContent.style.display = "block";
+    backButton.style.visibility = "hidden";
+
     setTimeout(() => {
       pongPage.style.visibility = "hidden";
-      homeContent.style.display = "block";
-      homeContent.classList.remove("slide-up-in");
-      homeContent.classList.add("slide-up-in");
-      pongPage.classList.remove("slide-down-in");
-      backButton.style.visibility = "hidden";
     }, 500);
   });
 });

@@ -8,20 +8,27 @@ document.addEventListener("DOMContentLoaded", function () {
     card.addEventListener("click", function () {
       const targetGame = card.getAttribute("data-target");
 
-      homeContent.style.display = "none";
+      homeContent.classList.add("slide-down");
 
-      if (targetGame === "pong") {
-        pongPage.style.visibility = "visible";
-      }
-
-      backButton.style.visibility = "visible";
+      setTimeout(() => {
+        homeContent.style.display = "none";
+        if (targetGame === "pong") {
+          pongPage.style.visibility = "visible";
+          pongPage.classList.add("slide-down-in");
+        }
+        backButton.style.visibility = "visible";
+      }, 500);
     });
   });
 
   backButton.addEventListener("click", function () {
-    backButton.style.visibility = "hidden";
-
-    pongPage.style.visibility = "hidden";
-    homeContent.style.display = "block";
+    pongPage.classList.add("slide-up");
+    setTimeout(() => {
+      pongPage.style.visibility = "hidden";
+      homeContent.style.display = "block";
+      homeContent.classList.add("slide-up-in");
+      pongPage.classList.remove("slide-down-in");
+      backButton.style.visibility = "hidden";
+    }, 500);
   });
 });

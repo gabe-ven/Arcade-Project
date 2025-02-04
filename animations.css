@@ -1,49 +1,54 @@
-/* Animations */
+/* Home page sliding down */
 @keyframes slide-down {
   from {
-    transform: translateY(0%);
+    transform: translateY(0);
   }
   to {
-    transform: translateY(100%);
+    transform: translateY(100vh); /* Slides down completely */
   }
 }
 
+/* Game page coming in from top */
 @keyframes slide-down-in {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-100vh); /* Start above the screen */
   }
   to {
-    transform: translateY(0%);
+    transform: translateY(0); /* Moves to its normal position */
   }
 }
 
+/* Game page sliding up and out */
 @keyframes slide-up {
   from {
-    transform: translateY(0%);
+    transform: translateY(0);
   }
   to {
-    transform: translateY(-100%);
+    transform: translateY(-100vh); /* Moves up and out of view */
   }
 }
 
+/* Home page sliding up */
 @keyframes slide-up-in {
   from {
-    transform: translateY(100%);
+    transform: translateY(100vh);
   }
   to {
-    transform: translateY(0%);
+    transform: translateY(0);
   }
 }
 
-/* Classes for triggering animations */
+/* Home page sliding down */
 .slide-down {
   animation: slide-down 0.5s forwards;
 }
 
+/* Game page sliding in from top */
 .slide-down-in {
   animation: slide-down-in 0.5s forwards;
 }
 
+/* Game page sliding up and out */
 .slide-up {
   animation: slide-up 0.5s forwards;
 }

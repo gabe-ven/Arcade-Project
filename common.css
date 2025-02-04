@@ -40,7 +40,8 @@ body {
 #pong-page .startText {
   position: absolute;
   margin: 0;
-  top: 50%;
+  top: 500px;
+  width: 350px;
   z-index: 1;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -48,6 +49,7 @@ body {
   background: #222;
   border-radius: 4px;
   padding: 10px;
+  opacity: 0.8;
 }
 
 #pong-page {

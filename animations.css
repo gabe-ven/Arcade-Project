@@ -38,34 +38,27 @@
   }
 }
 
-.slide-down {
-  animation: slide-down 0.5s forwards;
+.home-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide-down {
+  animation: slide-down 0.5s forwards;
 }
 
 .slide-down-in {
   animation: slide-down-in 1s forwards;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 .slide-up {
   animation: slide-up 1s forwards;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 .slide-up-in {
   animation: slide-up-in 1s forwards;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }

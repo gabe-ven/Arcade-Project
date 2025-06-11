@@ -75,3 +75,69 @@ body {
 #back-button:hover {
   color: #451188;
 }
+
+#snake-page .title {
+  color: rgb(0, 255, 76);
+  position: absolute;
+  top: 88px;
+  font-size: 26px;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+}
+
+#snake-page .gameArea {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background: rgba(7, 26, 49, 0.6);
+  top: 182px;
+  border: #919bbec7 10px solid;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  transform: perspective(1000px) rotateX(33deg) scaleX(0.54) scaleY(0.84);
+}
+
+#snake-page .bg {
+  position: absolute;
+  height: 1000px;
+  z-index: -1;
+}
+
+#snake-page .startText {
+  position: absolute;
+  margin: 0;
+  top: 500px;
+  width: 350px;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: #222;
+  border-radius: 4px;
+  padding: 10px;
+  opacity: 0.8;
+}
+
+#snake-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Snake page scores positioned like Pong scores */
+#snake-page .score {
+  position: absolute;
+  top: 88px;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+#snake-page .snake-score {
+  left: calc(50% - 200px);
+}
+
+#snake-page .high-score {
+  right: calc(50% - 200px);
+}

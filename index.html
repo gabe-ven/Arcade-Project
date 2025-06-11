@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="animations.css" />
     <link rel="stylesheet" href="home.css" />
-    <link rel="stylesheet" href="pong.css" />
+    <link rel="stylesheet" href="pong/pong.css" />
+    <link rel="stylesheet" href="snake/snake.css" />
     <title>Gabe's Arcade</title>
   </head>
   <body>
@@ -89,10 +90,28 @@
       <audio src="assets/loss.wav" id="lossSound"></audio>
     </div>
 
+    <!-- Snake Game Page -->
+    <div id="snake-page" class="game-page" style="visibility: hidden">
+      <h1 class="title">SNAKE</h1>
+      <span class="score snake-score" id="snakeScore">0</span>
+      <span class="score high-score" id="highScore">High: 0</span>
+      <h3 class="startText" id="snakeStartText">
+        Press any key to start the game
+      </h3>
+      <div class="gameArea">
+        <div id="snake-head" class="snake-head"></div>
+        <div id="food" class="food"></div>
+      </div>
+      <img src="assets/machine.png" alt="Arcade Snake Machine" class="bg" />
+      <audio src="assets/bite.mp3" id="eatSound"></audio>
+      <audio src="assets/loss.wav" id="gameOverSound"></audio>
+    </div>
+
     <button id="back-button" style="visibility: hidden">X</button>
 
     <!-- External JavaScript files -->
+    <script src="pong/pong.js" defer></script>
+    <script src="snake/snake.js" defer></script>
     <script src="gameController.js" defer></script>
-    <script src="pong.js" defer></script>
   </body>
 </html>

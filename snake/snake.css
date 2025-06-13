@@ -1,22 +1,25 @@
 .snake-segment {
-  background: rgba(0, 255, 76, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #00ff41, #32cd32);
+  border: 1px solid #228b22;
   z-index: 2; /* Above the grid */
   position: relative; /* Required for z-index to work */
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
 }
 
 .snake-head {
-  background: rgba(0, 200, 60, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(45deg, #228b22, #006400);
+  border: 1px solid #00ff41;
   z-index: 2; /* Above the grid */
   position: relative; /* Required for z-index to work */
+  box-shadow: 0 0 15px rgba(34, 139, 34, 0.6);
 }
 
 .food {
-  background: rgba(212, 52, 52, 0.9);
+  background: radial-gradient(circle, #ff4444, #cc0000);
   border-radius: 20%;
   z-index: 2; /* Above the grid */
   position: relative; /* Required for z-index to work */
+  box-shadow: 0 0 15px #ff4444, 0 0 30px rgba(255, 68, 68, 0.4);
 }
 
 .snake-controls-key {

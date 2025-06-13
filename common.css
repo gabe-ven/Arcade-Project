@@ -5,18 +5,61 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f2be22;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+  background: linear-gradient(
+    45deg,
+    #ff006e,
+    #8338ec,
+    #3a86ff,
+    #06ffa5,
+    #ffbe0b,
+    #ff006e
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 6s ease infinite;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000,
+    0 0 10px rgba(255, 255, 255, 0.5);
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 100% 75%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Keeping game titles, scores, and game areas EXACTLY as they were */
 #pong-page .title {
-  color: rgb(0, 255, 76);
+  color: #06ffa5;
   position: absolute;
   top: 88px;
-  font-size: 26px;
+  font-size: clamp(18px, 26px, 32px);
   text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+  transition: text-shadow 0.3s ease;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+  }
+  100% {
+    text-shadow: 4px 4px 0 #000, 6px 6px 0 #000000, 0 0 20px #06ffa5,
+      0 0 35px #06ffa5;
+  }
 }
 
 #pong-page .gameArea {
@@ -35,6 +78,11 @@ body {
   position: absolute;
   height: 1000px;
   z-index: -1;
+  transition: filter 0.3s ease;
+}
+
+#pong-page:hover .bg {
+  filter: brightness(1.1) saturate(1.2);
 }
 
 #pong-page .startText {
@@ -46,42 +94,59 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: #222;
-  border-radius: 4px;
-  padding: 10px;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #ff006e;
+  border-radius: 8px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-size: clamp(10px, 2vw, 16px);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+#pong-page .startText:hover {
+  border-color: #06ffa5;
+  box-shadow: 0 0 30px #06ffa5, 0 0 50px rgba(6, 255, 165, 0.3);
+  color: #06ffa5;
 }
 
 #pong-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 #back-button {
   font-family: "Press Start 2P", system-ui;
-  color: #712dca;
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
-  font-size: 7vw;
-  position: absolute;
+  color: #ff006e;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000, 0 0 10px #ff006e;
+  font-size: clamp(4vw, 7vw, 8vw);
+  position: fixed;
   top: 10px;
   right: 10px;
   padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
 }
 
 #back-button:hover {
-  color: #451188;
+  color: #06ffa5;
+  transform: scale(1.1);
+  text-shadow: 4px 4px 0 #000, 6px 6px 0 #000000, 0 0 20px #06ffa5;
 }
 
 #snake-page .title {
-  color: rgb(0, 255, 76);
+  color: #06ffa5;
   position: absolute;
   top: 88px;
-  font-size: 26px;
+  font-size: clamp(18px, 26px, 32px);
   text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+  transition: text-shadow 0.3s ease;
+  animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
 #snake-page .gameArea {
@@ -100,6 +165,11 @@ body {
   position: absolute;
   height: 1000px;
   z-index: -1;
+  transition: filter 0.3s ease;
+}
+
+#snake-page:hover .bg {
+  filter: brightness(1.1) saturate(1.2);
 }
 
 #snake-page .startText {
@@ -111,19 +181,30 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: #222;
-  border-radius: 4px;
-  padding: 10px;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #8338ec;
+  border-radius: 8px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-size: clamp(10px, 2vw, 16px);
+  box-shadow: 0 0 20px rgba(131, 56, 236, 0.5);
+}
+
+#snake-page .startText:hover {
+  border-color: #06ffa5;
+  box-shadow: 0 0 30px #06ffa5, 0 0 50px rgba(6, 255, 165, 0.3);
+  color: #06ffa5;
 }
 
 #snake-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
-/* Snake page scores positioned like Pong scores */
+/* Snake page scores positioned EXACTLY like Pong scores - NO CHANGES */
 #snake-page .score {
   position: absolute;
   top: 88px;
@@ -142,57 +223,97 @@ body {
   right: calc(50% - 200px);
 }
 
-/* Game controls info panel styling - now generic for all games */
+/* Enhanced controls info panel with better responsiveness */
 .controls-info {
   position: absolute;
   top: 50%;
   left: 1vh;
   transform: translateY(-50%);
   width: clamp(160px, 18vw, 280px);
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid #3a86ff;
+  border-radius: 12px;
   padding: clamp(8px, 2vw, 20px);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: clamp(7px, 1vw, 14px);
   z-index: 5;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 1px 1px 0 #000, 0 0 10px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 20px rgba(58, 134, 255, 0.3);
+}
+
+.controls-info:hover {
+  border-color: #06ffa5;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.9), 0 0 30px #06ffa5;
 }
 
 .controls-info h3 {
   margin-top: 0;
   text-align: center;
-  color: rgb(0, 255, 76);
+  color: #06ffa5;
   margin-bottom: clamp(6px, 1.2vw, 16px);
   font-size: clamp(8px, 1.1vw, 16px);
+  transition: color 0.3s ease;
+  text-shadow: 0 0 10px #06ffa5;
+}
+
+.controls-info:hover h3 {
+  color: #ffbe0b;
+  text-shadow: 0 0 15px #ffbe0b;
 }
 
 .controls-info p {
   margin: clamp(4px, 0.8vw, 10px) 0;
   line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+
+.controls-info:hover p {
+  transform: translateX(2px);
 }
 
 .key {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
+  background: linear-gradient(45deg, #ff006e, #8338ec);
+  border: 1px solid #06ffa5;
+  border-radius: 6px;
   padding: clamp(1px, 0.3vw, 4px) clamp(2px, 0.5vw, 6px);
   margin: 0 clamp(1px, 0.4vw, 4px);
   font-weight: bold;
   font-size: clamp(6px, 0.8vw, 12px);
+  transition: all 0.2s ease;
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.key:hover {
+  background: linear-gradient(45deg, #06ffa5, #3a86ff);
+  border-color: #ffbe0b;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(6, 255, 165, 0.5);
 }
 
 .player-section {
   margin-top: clamp(8px, 1.5vw, 18px);
   border-top: 1px dotted rgba(255, 255, 255, 0.3);
   padding-top: clamp(2px, 0.5vw, 6px);
+  transition: border-color 0.3s ease;
+}
+
+.controls-info:hover .player-section {
+  border-top-color: rgba(0, 255, 76, 0.5);
 }
 
 .player-section h4 {
   margin: clamp(4px, 0.8vw, 10px) 0;
   color: rgba(255, 255, 255, 0.8);
   font-size: clamp(7px, 0.9vw, 13px);
+  transition: color 0.3s ease;
+}
+
+.controls-info:hover .player-section h4 {
+  color: rgba(255, 255, 255, 1);
 }
 
 .arrow-keys {
@@ -200,6 +321,11 @@ body {
   flex-direction: column;
   align-items: center;
   margin: clamp(6px, 1vw, 12px) 0;
+  transition: transform 0.3s ease;
+}
+
+.controls-info:hover .arrow-keys {
+  transform: scale(1.02);
 }
 
 .arrow-keys-row {
@@ -216,9 +342,14 @@ body {
   height: clamp(12px, 2vw, 24px);
   text-align: center;
   display: inline-block;
+  transition: all 0.2s ease;
 }
 
-/* Media queries for mobile devices */
+.snake-controls-key:hover {
+  transform: scale(1.1);
+}
+
+/* Enhanced mobile responsiveness */
 @media (max-width: 768px) {
   .controls-info {
     width: 150px;
@@ -227,6 +358,7 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    border-radius: 8px;
   }
 
   .controls-info h3 {
@@ -238,6 +370,7 @@ body {
     padding: 1px 2px;
     margin: 0 1px;
     font-size: 6px;
+    border-radius: 3px;
   }
 
   .player-section h4 {
@@ -256,6 +389,7 @@ body {
     width: 120px;
     font-size: 6px;
     padding: 6px;
+    left: -5px;
   }
 
   .controls-info h3 {
@@ -264,11 +398,27 @@ body {
 
   .key {
     font-size: 5px;
+    padding: 0.5px 1px;
   }
 
   .snake-controls-key,
   .arrow-spacer {
     width: 10px;
     height: 10px;
+  }
+}
+
+/* Smooth loading animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,9 +1,11 @@
 .paddle {
   height: 100px;
   width: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, #06ffa5, #3a86ff);
   position: absolute;
   top: 150px;
+  box-shadow: 0 0 15px rgba(6, 255, 165, 0.6);
+  border-radius: 2px;
 }
 
 .paddle2 {
@@ -14,19 +16,20 @@
   position: absolute;
   height: 20px;
   width: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
+  background: radial-gradient(circle, #ffbe0b, #ff006e);
+  border-radius: 50%;
   left: 290px;
   top: 190px;
-  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 20px #ffbe0b, 0 0 40px rgba(255, 190, 11, 0.5);
 }
 
 .net {
   position: absolute;
-  border-right: 8px rgba(255, 255, 255, 0.3) dotted;
+  border-right: 8px #8338ec dotted;
   height: 96%;
   top: 2%;
   left: calc(50% - 4px);
+  box-shadow: 0 0 10px rgba(131, 56, 236, 0.5);
 }
 
 .score {

@@ -1,219 +1,395 @@
 .main-title {
-  font-size: 4vw;
-  color: #f24c3d;
+  font-size: clamp(2rem, 4vw, 6rem);
+  color: #ff006e;
   position: relative;
   width: 100%;
   text-align: center;
   margin-top: 3vh;
-  text-shadow: 8px 5px 0 #000, 4px 4px 0 #000000;
+  text-shadow: 8px 5px 0 #000, 4px 4px 0 #000000, 0 0 20px #ff006e,
+    0 0 40px #ff006e;
   font-family: "Press Start 2P", cursive;
   z-index: 1;
+  transition: all 0.3s ease;
+  animation: titlePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse {
+  0% {
+    text-shadow: 8px 5px 0 #000, 4px 4px 0 #000000, 0 0 20px #ff006e;
+  }
+  100% {
+    text-shadow: 12px 8px 0 #000, 6px 6px 0 #000000, 0 0 30px #ff006e,
+      0 0 50px #ff006e;
+  }
 }
 
 .game-selection {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
+  flex-wrap: wrap;
+  gap: 2vh;
+  padding: 0 2vw;
 }
 
 .game-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2vh;
-  border: 5px solid #22a699;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.9);
+  margin: 1vh;
+  border: 5px solid #06ffa5;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(6, 255, 165, 0.3);
   border-radius: 6px;
-  width: 20vw;
-  background-color: rgb(6, 4, 27);
-  transition: transform 0.3s, box-shadow 0.3s;
+  width: clamp(280px, 20vw, 350px);
+  height: clamp(400px, 45vh, 500px);
+  max-width: 350px;
+  background: linear-gradient(135deg, #1a0d2e, #16213e, #0f1419);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1;
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.game-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #ff006e,
+    #8338ec,
+    #3a86ff,
+    #06ffa5,
+    #ffbe0b,
+    #ff006e
+  );
+  background-size: 400% 400%;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.game-card:hover::before {
+  opacity: 1;
+  animation: borderGlow 2s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 25%;
+  }
+  50% {
+    background-position: 100% 75%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .game-card:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.9);
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: 6px 12px 24px rgba(0, 0, 0, 0.9), 0 0 30px rgba(6, 255, 165, 0.6);
   cursor: pointer;
+  border-color: #ffbe0b;
+  background: linear-gradient(135deg, #2d1b3d, #1e2a4a, #1a1f2e);
 }
 
 .game-image {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   margin-bottom: 1vh;
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.02);
 }
 
 .game-title {
-  font-size: 3vw;
+  font-size: clamp(1rem, 2.5vw, 2rem);
   margin-bottom: 1vh;
-  color: #f29727;
-  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000;
+  color: #06ffa5;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000, 0 0 10px #06ffa5;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.game-card:hover .game-title {
+  color: #ffbe0b;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000000, 0 0 15px #ffbe0b;
 }
 
 .game-description {
-  font-size: 1.2vw;
+  font-size: clamp(0.6rem, 1.1vw, 0.9rem);
   text-align: center;
   margin: 1vh;
   text-shadow: 2px 2px 0 #000, 4px 2px 0 #000000;
   line-height: 1.5em;
+  transition: transform 0.3s ease, color 0.3s ease;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.game-card:hover .game-description {
+  transform: translateY(-2px);
+  color: #3a86ff;
+  text-shadow: 2px 2px 0 #000, 4px 2px 0 #000000, 0 0 8px #3a86ff;
+}
+
+.image1,
+.image2,
+.image3,
+.image4,
+.image5,
+.image6,
+.image7,
+.image8,
+.image9,
+.image10 {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: floatAnimation 6s ease-in-out infinite;
 }
 
 .image1 {
   background-image: url("assets/controller.png");
-  width: 30vw;
-  height: 30vw;
+  width: clamp(15vw, 30vw, 35vw);
+  height: clamp(15vw, 30vw, 35vw);
   bottom: -10%;
   left: -6%;
   transform: rotate(10deg);
   background-size: cover;
   position: absolute;
+  animation-delay: 0s;
 }
 
 .image2 {
   background-image: url("assets/arcade.png");
-  width: 30vw;
-  height: 30vw;
+  width: clamp(15vw, 30vw, 35vw);
+  height: clamp(15vw, 30vw, 35vw);
   bottom: -8%;
   right: -7%;
   transform: rotate(-10deg);
   background-size: cover;
   position: absolute;
+  animation-delay: 1s;
 }
 
 .image3 {
   background-image: url("assets/mario.gif");
-  width: 20vw;
-  height: 20vw;
+  width: clamp(10vw, 20vw, 25vw);
+  height: clamp(10vw, 20vw, 25vw);
   top: 1%;
   right: 5%;
   background-size: cover;
   position: absolute;
+  animation-delay: 2s;
 }
 
 .image4 {
   background-image: url("assets/fighter.gif");
-  width: 15vw;
-  height: 36vw;
+  width: clamp(8vw, 15vw, 20vw);
+  height: clamp(20vw, 36vw, 40vw);
   top: -1%;
   left: -2%;
   background-size: cover;
   position: absolute;
   z-index: 1;
+  animation-delay: 0.5s;
 }
 
 .image5 {
   background-image: url("assets/pikachu.gif");
-  width: 22vw;
-  height: 22vw;
+  width: clamp(12vw, 22vw, 28vw);
+  height: clamp(12vw, 22vw, 28vw);
   top: 20%;
   right: -5%;
   background-size: cover;
   position: absolute;
+  animation-delay: 1.5s;
 }
 
 .image6 {
   background-image: url("assets/squidward.gif");
-  width: 25vw;
-  height: 25vw;
+  width: clamp(15vw, 25vw, 30vw);
+  height: clamp(15vw, 25vw, 30vw);
   top: -3%;
   left: -2%;
   background-size: cover;
   position: absolute;
+  animation-delay: 3s;
 }
 
 .image7 {
   background-image: url("assets/bat.gif");
-  width: 13vw;
-  height: 13vw;
+  width: clamp(8vw, 13vw, 18vw);
+  height: clamp(8vw, 13vw, 18vw);
   top: -3%;
   left: 15%;
   background-size: cover;
   position: absolute;
+  animation-delay: 2.5s;
 }
 
 .image8 {
   background-image: url("assets/blue.gif");
-  width: 8vw;
-  height: 8vw;
+  width: clamp(5vw, 8vw, 12vw);
+  height: clamp(5vw, 8vw, 12vw);
   top: 0%;
   right: 18%;
   background-size: cover;
   position: absolute;
+  animation-delay: 4s;
 }
 
 .image9 {
   background-image: url("assets/thumbs-up.gif");
-  width: 15vw;
-  height: 20vw;
+  width: clamp(10vw, 15vw, 20vw);
+  height: clamp(15vw, 20vw, 25vw);
   top: -1%;
   right: -5%;
   background-size: cover;
   position: absolute;
   z-index: -1;
+  animation-delay: 3.5s;
 }
 
 .image10 {
   background-image: url("assets/crystal.gif");
-  width: 20vw;
-  height: 20vw;
+  width: clamp(12vw, 20vw, 25vw);
+  height: clamp(12vw, 20vw, 25vw);
   top: -5%;
   left: -2%;
   background-size: cover;
   position: absolute;
   z-index: -1;
+  animation-delay: 1.8s;
 }
 
-@media only screen and (min-width: 600px) {
-  .main-title {
-    font-size: 3vw;
+@keyframes floatAnimation {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+  }
+}
+
+/* Enhanced media queries with smooth transitions */
+@media only screen and (min-width: 1200px) {
+  .game-selection {
+    max-width: 1400px;
+    justify-content: center;
   }
 
   .game-card {
-    width: 25vw;
+    width: clamp(300px, 18vw, 380px);
+    height: clamp(450px, 50vh, 550px);
+    max-width: 380px;
   }
 
-  .game-title {
-    font-size: 1.5vw;
-  }
-
-  .game-description {
-    font-size: 1vw;
+  .game-image {
+    height: 220px;
   }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 1200px) {
-  .main-title {
-    font-size: 3.5vw;
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .game-selection {
+    gap: 1.5vh;
+    max-width: 1000px;
+    justify-content: center;
   }
 
   .game-card {
-    width: 22vw;
+    width: clamp(250px, 25vw, 320px);
+    height: clamp(420px, 48vh, 520px);
+    max-width: 320px;
   }
 
-  .game-title {
-    font-size: 1.6vw;
+  .game-image {
+    height: 200px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .game-selection {
+    gap: 1.5vh;
+    max-width: 800px;
+    justify-content: center;
   }
 
-  .game-description {
-    font-size: 1.1vw;
+  .game-card {
+    width: clamp(220px, 28vw, 280px);
+    height: clamp(400px, 45vh, 480px);
+    max-width: 280px;
+  }
+
+  .game-image {
+    height: 180px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .main-title {
-    font-size: 5vw;
+  .game-selection {
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 0 5vw;
   }
 
   .game-card {
-    width: 90%;
+    width: clamp(280px, 85vw, 400px);
+    height: clamp(380px, 42vh, 450px);
+    margin: 0;
   }
 
-  .game-title {
-    font-size: 2vw;
+  .game-image {
+    height: 160px;
   }
 
-  .game-description {
-    font-size: 1.5vw;
+  /* Hide some background images on mobile for better performance */
+  .image7,
+  .image8,
+  .image9,
+  .image10 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .game-card {
+    width: clamp(260px, 90vw, 320px);
+    height: clamp(360px, 40vh, 420px);
+  }
+
+  .game-image {
+    height: 140px;
   }
 }

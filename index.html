@@ -78,6 +78,7 @@
       <span class="score player1Score" id="player1Score">0</span>
       <span class="score player2Score" id="player2Score">0</span>
       <h3 class="startText" id="startText">Press any key to start the game</h3>
+
       <div class="gameArea">
         <div id="paddle1" class="paddle1 paddle"></div>
         <div id="paddle2" class="paddle2 paddle"></div>
@@ -98,6 +99,7 @@
       <h3 class="startText" id="snakeStartText">
         Press any key to start the game
       </h3>
+
       <div class="gameArea">
         <div id="snake-head" class="snake-head"></div>
         <div id="food" class="food"></div>
@@ -107,6 +109,21 @@
       <audio src="assets/loss.wav" id="gameOverSound"></audio>
     </div>
 
+    <button id="back-button" style="visibility: hidden">X</button>
+
+    <!-- Add single controls info panel that will be populated dynamically -->
+    <div class="controls-info" id="controls-info" style="visibility: hidden">
+      <h3>CONTROLS</h3>
+      <div id="controls-content"></div>
+    </div>
+
+    <!-- External JavaScript files -->
+    <script src="pong/pong.js" defer></script>
+    <script src="snake/snake.js" defer></script>
+    <script src="gameController.js" defer></script>
+  </body>
+</html>
+          
     <button id="back-button" style="visibility: hidden">X</button>
 
     <!-- External JavaScript files -->

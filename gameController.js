@@ -7,6 +7,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentGame = null; // Track current active game
 
+  // Controls content for each game
+  const gameControls = {
+    pong: `
+      <div class="player-section">
+        <h4>PLAYER 1</h4>
+        <p><span class="key">W</span> - Move Up</p>
+        <p><span class="key">S</span> - Move Down</p>
+      </div>
+      <div class="player-section">
+        <h4>PLAYER 2</h4>
+        <p><span class="key">↑</span> - Move Up</p>
+        <p><span class="key">↓</span> - Move Down</p>
+      </div>
+    `,
+    snake: `
+      <p>Use arrow keys or WASD to change direction:</p>
+      <div class="arrow-keys">
+        <div class="arrow-keys-row">
+          <div class="arrow-spacer"></div>
+          <div class="key snake-controls-key">↑</div>
+          <div class="arrow-spacer"></div>
+        </div>
+        <div class="arrow-keys-row">
+          <div class="key snake-controls-key">←</div>
+          <div class="key snake-controls-key">↓</div>
+          <div class="key snake-controls-key">→</div>
+        </div>
+      </div>
+      <p>Or:</p>
+      <div class="arrow-keys">
+        <div class="arrow-keys-row">
+          <div class="arrow-spacer"></div>
+          <div class="key snake-controls-key">W</div>
+          <div class="arrow-spacer"></div>
+        </div>
+        <div class="arrow-keys-row">
+          <div class="key snake-controls-key">A</div>
+          <div class="key snake-controls-key">S</div>
+          <div class="key snake-controls-key">D</div>
+        </div>
+      </div>
+    `,
+  };
+
   gameCards.forEach((card) => {
     card.addEventListener("click", function () {
       const targetGame = card.getAttribute("data-target");
@@ -53,6 +97,15 @@ document.addEventListener("DOMContentLoaded", function () {
           window.snakeInit();
         }
       }, 500);
+
+      // Update controls content
+      const controlsContent = document.getElementById("controls-content");
+      const controlsInfo = document.getElementById("controls-info");
+
+      if (controlsContent && gameControls[targetGame]) {
+        controlsContent.innerHTML = gameControls[targetGame];
+        controlsInfo.style.visibility = "visible";
+      }
     });
   });
 
@@ -81,5 +134,11 @@ document.addEventListener("DOMContentLoaded", function () {
     homeContent.classList.add("slide-up-in");
     homeContent.style.display = "block";
     backButton.style.visibility = "hidden";
+
+    // Hide controls info
+    const controlsInfo = document.getElementById("controls-info");
+    if (controlsInfo) {
+      controlsInfo.style.visibility = "hidden";
+    }
   });
 });

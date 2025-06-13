@@ -141,3 +141,134 @@ body {
 #snake-page .high-score {
   right: calc(50% - 200px);
 }
+
+/* Game controls info panel styling - now generic for all games */
+.controls-info {
+  position: absolute;
+  top: 50%;
+  left: 1vh;
+  transform: translateY(-50%);
+  width: clamp(160px, 18vw, 280px);
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: clamp(8px, 2vw, 20px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(7px, 1vw, 14px);
+  z-index: 5;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.controls-info h3 {
+  margin-top: 0;
+  text-align: center;
+  color: rgb(0, 255, 76);
+  margin-bottom: clamp(6px, 1.2vw, 16px);
+  font-size: clamp(8px, 1.1vw, 16px);
+}
+
+.controls-info p {
+  margin: clamp(4px, 0.8vw, 10px) 0;
+  line-height: 1.4;
+}
+
+.key {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: clamp(1px, 0.3vw, 4px) clamp(2px, 0.5vw, 6px);
+  margin: 0 clamp(1px, 0.4vw, 4px);
+  font-weight: bold;
+  font-size: clamp(6px, 0.8vw, 12px);
+}
+
+.player-section {
+  margin-top: clamp(8px, 1.5vw, 18px);
+  border-top: 1px dotted rgba(255, 255, 255, 0.3);
+  padding-top: clamp(2px, 0.5vw, 6px);
+}
+
+.player-section h4 {
+  margin: clamp(4px, 0.8vw, 10px) 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(7px, 0.9vw, 13px);
+}
+
+.arrow-keys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: clamp(6px, 1vw, 12px) 0;
+}
+
+.arrow-keys-row {
+  display: flex;
+}
+
+.arrow-spacer {
+  width: clamp(12px, 2vw, 24px);
+  height: clamp(12px, 2vw, 24px);
+}
+
+.snake-controls-key {
+  width: clamp(12px, 2vw, 24px);
+  height: clamp(12px, 2vw, 24px);
+  text-align: center;
+  display: inline-block;
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 768px) {
+  .controls-info {
+    width: 150px;
+    font-size: 7px;
+    padding: 8px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .controls-info h3 {
+    font-size: 8px;
+    margin-bottom: 6px;
+  }
+
+  .key {
+    padding: 1px 2px;
+    margin: 0 1px;
+    font-size: 6px;
+  }
+
+  .player-section h4 {
+    font-size: 7px;
+  }
+
+  .snake-controls-key,
+  .arrow-spacer {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls-info {
+    width: 120px;
+    font-size: 6px;
+    padding: 6px;
+  }
+
+  .controls-info h3 {
+    font-size: 7px;
+  }
+
+  .key {
+    font-size: 5px;
+  }
+
+  .snake-controls-key,
+  .arrow-spacer {
+    width: 10px;
+    height: 10px;
+  }
+}

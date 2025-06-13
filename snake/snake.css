@@ -18,3 +18,26 @@
   z-index: 2; /* Above the grid */
   position: relative; /* Required for z-index to work */
 }
+
+.snake-controls-key {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.arrow-keys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.arrow-keys-row {
+  display: flex;
+}
+
+.arrow-spacer {
+  width: 20px;
+  height: 20px;
+}
